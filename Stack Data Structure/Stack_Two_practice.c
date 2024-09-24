@@ -1,39 +1,41 @@
 #include <stdio.h>
 #define MAXSIZE 4
+
+void pus(void);
+void pop(void);
+void display(void);
+
 struct Stack
 {
     int stk[MAXSIZE];
     int top;
 };
+
 typedef struct Stack STACK;
 STACK s;
 
-void push(void);
-void pop(void);
-void display(void);
-
 void main()
 {
-    int chose;
+    int choise;
     int option = 1;
     s.top = -1;
 
     while (option)
     {
-        printf("----------------------------------\n");
-        printf("1 --> PUSH\n");
+        printf("--------------------------\n");
+        printf("1 --> PUS\n");
         printf("2 --> POP\n");
-        printf("3 --> DISPLAY \n");
-        printf("4 --> EXIT \n");
-        printf("----------------------------------\n");
+        printf("3 --> DISPLAY\n");
+        printf("4 --> Exit\n");
+        printf("--------------------------\n");
 
-        printf("Enter your choice :");
-        scanf("%d", &chose);
+        printf("Enter your choise : ");
+        scanf("%d", &choise);
 
-        switch (chose)
+        switch (choise)
         {
         case 1:
-            push();
+            pus();
             break;
         case 2:
             pop();
@@ -45,24 +47,24 @@ void main()
             return;
         }
 
-        fflush(stdin);
-        printf("Do you want to continue (Type 0 or 1 ):");
-        scanf("%d", &option);
+        printf("Do you want to continue ? (yes press 1 or NO press 0)");
+        scanf("%d", &choise);
     }
 }
 
-void push()
+void pus()
 {
     int num;
     if (s.top == (MAXSIZE - 1))
     {
-        printf("Stack is full\n");
+        printf("Stack is full \n");
         return;
     }
     else
     {
         printf("Enter the element to be pushed : ");
         scanf("%d", &num);
+
         s.top = s.top + 1;
         s.stk[s.top] = num;
     }
@@ -71,10 +73,9 @@ void push()
 
 void pop()
 {
-    int num;
     if (s.top == -1)
     {
-        printf("Stack is Empty\n");
+        printf("Stake is empty \n");
         return;
     }
     else
@@ -86,16 +87,14 @@ void pop()
 
 void display()
 {
-
     if (s.top == -1)
     {
-        printf("Stack is empty\n");
+        printf("Stake is Empty \n");
         return;
     }
     else
     {
-        printf("The status of the stack is ");
-        for (int i = 0; i < s.top; i++)
+        for (int i = s.top; i >= 0; i--)
         {
             printf(" %d ", s.stk[i]);
         }
