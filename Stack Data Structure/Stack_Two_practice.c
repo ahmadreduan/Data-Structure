@@ -48,7 +48,7 @@ void main()
         }
 
         printf("Do you want to continue ? (yes press 1 or NO press 0)");
-        scanf("%d", &choise);
+        scanf("%d", &option);
     }
 }
 
