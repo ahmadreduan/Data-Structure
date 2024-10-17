@@ -1,15 +1,19 @@
-#include<stdio.h>
+#include <stdio.h>
 
-int linear_search(int arr[],int target,int size){
+int linear_search(int arr[], int target, int size)
+{
     int found = 0;
-    for(int i=0;i<size;i++){
-        if(arr[i]==target){
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == target)
+        {
             return i;
             found++;
         }
     }
 
-    if(found == 0){
+    if (found == 0)
+    {
         return -1;
     }
 }
@@ -33,7 +37,6 @@ int main()
         printf("%d ", arr[i]);
     }
     printf("\n");
-
 
     printf("Enter the element to search : ");
     scanf("%d", &target);

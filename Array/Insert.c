@@ -4,9 +4,7 @@ int main()
     int array[10] = {1, 2, 3, 4, 5};
     int element, position;
 
-    int size =5;
-
-    
+    int size = 5;
 
     printf("Enter the element to insert : ");
     scanf("%d", &element);
