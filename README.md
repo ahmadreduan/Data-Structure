@@ -102,6 +102,5 @@ int main() {
 
 We welcome contributions! If you'd like to contribute, please fork the repository, make changes in your fork, and submit a pull request. Ensure that your code is well-documented and follows a consistent style.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+---
