@@ -3,6 +3,8 @@
   Section : A2
   Problem : How to replace a specific element in the array. 
 */
+
+
 #include<stdio.h>
 int main(){
     int size,index,element;
