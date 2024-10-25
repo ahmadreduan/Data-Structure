@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+/* Name : Reduan Ahmad
+   ID : 232-35-016
+   Section : A2
+   Problem : Linked List.
 
-
+*/
 struct node
 {
     int data;

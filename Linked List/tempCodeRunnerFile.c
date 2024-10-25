@@ -1,2 +1,2 @@
 
-    *head = (*head)->next;
+    return 0;
