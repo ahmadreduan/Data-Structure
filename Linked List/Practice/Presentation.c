@@ -9,7 +9,7 @@ struct node {
 typedef struct node NODE;
 
 void insertAtMiddle(NODE *head, int data, int position) {
-    NODE *newNode = malloc(sizeof(NODE));
+    NODE *newNode = (NODE *)malloc(sizeof(NODE));
     newNode->num = data;
     
     NODE *temp = head;
