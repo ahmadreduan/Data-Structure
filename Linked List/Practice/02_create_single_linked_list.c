@@ -12,11 +12,18 @@ int main(){
     struct node *head = NULL;
 
     head = malloc(sizeof(struct node));
-
     head->data = 50;
     head->next = NULL;
 
-    printf("%d",head->data);
+    struct node *current = NULL;
+    current = malloc(sizeof(struct node));
+    current->data = 60;
+    current->next = NULL;
+
+    // Link the first node to the second node
+    head->next = current;
+
+    printf("%d %d",head->data,head->next->data);
     return 0;
-    
+
 }
