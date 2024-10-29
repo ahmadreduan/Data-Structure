@@ -35,5 +35,21 @@ int main(){
         count++;
         ptr = ptr->link;
     }
-    printf("Total number of node is : %d",count);
+    printf("Before inserting total number of node is : %d\n",count);
+
+    struct node *temp = malloc(sizeof(struct node));
+    temp->data = 50;
+    temp->link = NULL;
+    current2->link = temp;
+
+    printf("%d %d %d %d\n",head->data,head->link->data,head->link->link->data,head->link->link->link->data);
+    int s_count = 0;
+    ptr = head;
+    while(ptr!=NULL){
+        s_count++;
+        ptr = ptr->link;
+    }
+     printf("After inserting total number of node is : %d\n",s_count);
+
+
 }
