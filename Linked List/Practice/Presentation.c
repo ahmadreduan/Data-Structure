@@ -1,65 +1,78 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void main() {
-    struct node {
-        int num;
-        struct node *link;
-    };
-    struct node *first = NULL, *temp = NULL, *head;
-    int count = 0, choice = 1, flag = 1;
+// Define the Node structure
+struct Node
+{
+    int data;
+    int flag;
+    struct Node *next;
+};
 
-    // Create circular linked list with user input
-    while (choice) {
-        head = malloc(sizeof(struct node));
-        printf("Enter a data element to insert into the Linked List: ");
-        scanf("%d", &head->num);
+int main()
+{
+    struct Node *head = NULL, *tail = NULL, *temp = NULL, *current = NULL;
+    int data, count = 0;
 
-        if (first != NULL) {
-            temp->link = head;
-        } else {
-            first = head;
+    // Continuously take user input to create the circular linked list
+    while (1)
+    {
+        printf("Enter data for node (or -1 to finish): ");
+        scanf("%d", &data);
+        if (data == -1)
+            break;
+
+        // Allocate memory for new node
+        temp = (struct Node *)malloc(sizeof(struct Node));
+        temp->data = data;
+        temp->flag = 0;
+        temp->next = NULL;
+
+        if (head == NULL)
+        {
+            head = temp; // First node
         }
-        temp = head;
-        
-        printf("Continue? (Type 0 to exit or any integer to continue): ");
-        scanf("%d", &choice);
-    }
-    temp->link = first;  // Complete the circle
-
-    // Count nodes
-    temp = first;
-    do {
+        else
+        {
+            tail->next = temp; // Link last node to new node
+        }
+        tail = temp; // Update tail to new node
         count++;
-        temp = temp->link;
-    } while (temp != first);
-    printf("Total nodes: %d\n", count);
-
-    // Insert in the middle
-    int middle = (count / 2) + 1, newData;
-    printf("Enter data to insert at the middle position: ");
-    scanf("%d", &newData);
-
-    struct node *newNode = malloc(sizeof(struct node));
-    newNode->num = newData;
-
-    temp = first;
-    for (int i = 1; i < middle - 1; i++) {
-        temp = temp->link;
     }
-    newNode->link = temp->link;
-    temp->link = newNode;
 
-    // Print the circular linked list
-    temp = first;
+    // Making the list circular
+    if (tail != NULL)
+    {
+        tail->next = head; // Last node points to first node
+        tail->flag = 1;    // Last node's flag set to 1
+    }
+
+    // Insert new node in the middle
+    int midPosition = count / 2 + 1;
+    printf("Enter data for new node to insert in the middle: ");
+    scanf("%d", &data);
+
+    temp = (struct Node *)malloc(sizeof(struct Node));
+    temp->data = data;
+    temp->flag = 0;
+
+    current = head;
+    for (int i = 1; i < midPosition - 1; i++)
+    {
+        current = current->next; // Traverse to the middle position
+    }
+
+    temp->next = current->next; // Insert new node
+    current->next = temp;
+
+    // Printing the data and flag values
     printf("\nCircular Linked List:\n");
-    do {
-        printf("%d -> ",temp->num);
-        temp = temp->link;
-        if (temp == first && flag) {
-            printf(" (back to start)");
-            flag = 0;
-        }
-    } while (temp != first);
-    printf("\n");
+    current = head;
+    do
+    {
+        printf("Data: %d, Flag: %d -> ", current->data, current->flag);
+        current = current->next;
+    } while (current != head);
+
+    return 0;
 }
