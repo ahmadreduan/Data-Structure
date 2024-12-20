@@ -37,8 +37,6 @@ struct Graph* createGraph(int vartices){
     return graph;
 }
 
-
-
 void addEdge(struct Graph* graph , int src , int dest){
     struct Node* newNode = createNode(dest);
     newNode->next = graph->array[src].head;
